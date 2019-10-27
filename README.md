@@ -1,5 +1,7 @@
 Forked [tap-spec](https://github.com/scottcorgan/tap-spec) TAP reporter, but with dots for passing tests
 
+![](https://i.imgur.com/Gl0bbvO.png)
+
 ## Install
 
 ```
