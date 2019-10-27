@@ -24,43 +24,20 @@ module.exports = function (spec) {
 
   output.push('\n');
 
-  parser.on('test', function (test) {
-
-    output.push('\n' + pad(format.underline(test.name)) + '\n\n');
-  });
-
   // Passing assertions
   parser.on('pass', function (assertion) {
-
     if (/# SKIP/.test(assertion.name)) {
-      var name = assertion.name.replace(' # SKIP', '')
-      name = format.cyan('- ' + name);
-
-      output.push(pad('  ' + name + '\n'));
+      output.push(format.cyan("."));
     }
     else {
-      var glyph = format.green(symbols.tick);
-      var name = format.dim(assertion.name);
-
-      output.push(pad('  ' + glyph + ' ' + name + '\n'));
+      output.push(format.green("."));
     }
 
   });
 
   // Failing assertions
   parser.on('fail', function (assertion) {
-
-    var glyph = symbols.cross;
-    var title =  glyph + ' ' + assertion.name;
-    var raw = format.cyan(prettifyRawError(assertion.error.raw));
-    var divider = _.fill(
-      new Array((title).length + 1),
-      '-'
-    ).join('');
-
-    output.push('\n' + pad('  ' + format.red(title) + '\n'));
-    output.push(pad('  ' + format.red(divider) + '\n'));
-    output.push(raw);
+    output.push(format.red("."));
 
     stream.failed = true;
   });
@@ -108,7 +85,6 @@ module.exports = function (spec) {
   }
 
   function formatErrors (results) {
-
     var failCount = results.fail.length;
     var past = (failCount === 1) ? 'was' : 'were';
     var plural = (failCount === 1) ? 'failure' : 'failures';
@@ -146,12 +122,22 @@ module.exports = function (spec) {
 
       // Wrie failed assertion's test name
       var test = _.find(results.tests, {number: parseInt(testNumber)});
-      out += '\n' + pad('  ' + test.name + '\n\n');
+      out += '\n' + pad('  ' + format.underline(test.name) + '\n\n');
 
       // Write failed assertion
       _.each(assertions, function (assertion) {
 
-        out += pad('    ' + format.red(symbols.cross) + ' ' + format.red(assertion.name)) + '\n';
+        var glyph = symbols.cross;
+        var title =  glyph + ' ' + assertion.name;
+        var raw = format.cyan(prettifyRawError(assertion.error.raw));
+        var divider = _.fill(
+          new Array((title).length + 1),
+          '-'
+        ).join('');
+
+        out += pad('    ' + format.red(title) + '\n');
+        out += pad('    ' + format.red(divider) + '\n');
+        out += raw;
       });
 
       out += '\n';

@@ -1,14 +1,14 @@
 {
-  "name": "tap-spec",
-  "version": "5.0.0",
-  "description": "Formatted TAP output like Mocha's spec reporter",
+  "name": "tap-spec-dot",
+  "version": "0.1.0",
+  "description": "Forked tap-spec TAP reporter, but with dots for passing tests",
   "main": "index.js",
   "scripts": {
     "test": "echo 'Tests are out of date. Not running until fixed.'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/scottcorgan/tap-spec.git"
+    "url": "https://github.com/alexeyds/tap-spec-dot.git"
   },
   "keywords": [
     "tape",
@@ -20,13 +20,13 @@
   "author": "Scott Corgan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scottcorgan/tap-spec/issues"
+    "url": "https://github.com/alexeyds/tap-spec-dot/issues"
   },
   "dependencies": {
     "chalk": "^1.0.0",
     "duplexer": "^0.1.1",
     "figures": "^1.4.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "pretty-ms": "^2.1.0",
     "repeat-string": "^1.5.2",
     "tap-out": "^2.1.0",
