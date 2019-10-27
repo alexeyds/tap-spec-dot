@@ -1,6 +1,6 @@
 {
   "name": "tap-spec-dot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Forked tap-spec TAP reporter, but with dots for passing tests",
   "main": "index.js",
   "scripts": {
@@ -33,8 +33,7 @@
     "through2": "^2.0.0"
   },
   "bin": {
-    "tspec": "bin/cmd.js",
-    "tap-spec": "bin/cmd.js"
+    "tap-spec-dot": "bin/cmd.js"
   },
   "devDependencies": {
     "tapes": "^2.0.0"
