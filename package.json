@@ -1,6 +1,6 @@
 {
   "name": "tap-spec-dot",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Forked tap-spec TAP reporter, but with dots for passing tests",
   "main": "index.js",
   "scripts": {
